@@ -34,8 +34,23 @@ public class BST<K extends Comparable<K>, V> {
 
 
     public V get(K key) {
+        Node node=get(root,key);
+        return node!=null?node.val:null;
     }
-
+    private Node get(Node node,K key){
+        if(node==null){
+            return null;
+        }
+        int compare= key.compareTo(node.key);
+        if(compare>0){
+            return get(node.right,key);
+        } else if (compare<0) {
+            return get(node.left,key);
+        }
+        else{
+            return node;
+        }
+    }
     public void delete(K key) {
     }
 
