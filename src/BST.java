@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class BST<K extends Comparable<K>, V> {
     private Node root;
 
@@ -127,6 +128,21 @@ public class BST<K extends Comparable<K>, V> {
             return 1 + size(node.right) + size(node.left); // Recursively calculate the size of the left and right subtrees and add 1 for the current node
         }
     }
+
+    //высота binary search tree
+    public int height() {
+        return height(root);
+    }
+    private int height(Node node){
+        if(node==null){
+            return 0;
+        }
+        int leftSide=height(node.left);
+        int rightSide=height(node.right);
+        return 1+Math.max(leftSide,rightSide);
+    }
+
 }
+
 
 
